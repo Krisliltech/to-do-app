@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel='stylesheet' href='/stylesheets/login.css'/>
+</head>
+<body>
+    <div class="main">
+        <div id="myDIV" class="header">
+            <h2 class="title">Sign In</h2>
+            <form action="/login", id= 'forms' method="POST">
+                <input type="email" name="email" id="myInput" placeholder="Email...">
+                <input type="password" name="password" id="myInput" placeholder="Password..."><br/>
+                <div> <a href='/' class="sign">Not a member?Sign Up</a>
+                    <input type="submit" id='sub' value="Log In" class="addBtn">   
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

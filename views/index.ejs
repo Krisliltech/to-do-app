@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-App</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+</head>
+<body>
+    <div class="main">
+      <div class="logout">
+          <a href="/logout" class="logout1">Log Out</a>
+        </div>
+        <div id="myDIV" class="header">
+            <h2 class="title">My To Do List</h2>
+          <form action="/add/todo", id= 'forms' method="POST">
+            <input type="text" name="details" id="myInput" placeholder="Title...">
+            <input type="submit" id='sub' value="add todo" class="addBtn">
+          </form>
+        </div>
+        <div class="text-container">
+          <ul id="myUL" class="text-container">
+            <% for(let i = 0; i<tod.length; i++){ %>
+               <li class="input"><%= tod[i].details%><a href="/delete/<%= tod[i]._id%>" class="delete"><i class="fa fa-trash"></i></a><span id= "<%= [tod[i].details, tod[i]._id]%>" onclick = "edit(this.id)" class="edit"><i class="fa fa-edit"></i></span></li>
+            <% } %>
+          </ul>
+        </div>
+    </div>
+
+    <script>
+      function edit(param){
+          document.getElementById('myInput').setAttribute('value', param.split(',')[0])
+          document.getElementById('sub').setAttribute('value', 'edit todo')
+          document.getElementById('forms').setAttribute('action', `/update/${param.split(',')[1]}`)
+      }
+    </script>
+</body>
+</html>
